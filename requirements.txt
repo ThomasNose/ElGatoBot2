@@ -1,0 +1,4 @@
+py-cord==2.8.0
+fastapi==0.139.0
+dotenv
+requests==2.34.2
