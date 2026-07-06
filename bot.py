@@ -18,14 +18,6 @@ async def on_ready():
 async def hi(ctx):
     await ctx.respond("Hello")
 
-@bot.slash_command(name="ping")
-async def ping(ctx, url: str):
-    request = MakeRequest(url)
-    request = request.make_request()
-    print(request)
-    request = request.text
-    return await ctx.respond(f"Pinged {url} with response: {request}")
-
 @bot.slash_command(name="weather")
 async def weather(ctx, city: str):
     data = Weather.get_weather(city, MakeRequest)
