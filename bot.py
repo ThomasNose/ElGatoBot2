@@ -29,6 +29,8 @@ async def ping(ctx, url: str):
 @bot.slash_command(name="weather")
 async def weather(ctx, city: str):
     data = Weather.get_weather(city, MakeRequest)
+    if "City not found" in data:
+        return await ctx.respond(data)
     return await ctx.respond(f"Temperature in {city} at {data['current_weather']['time']}: {data['current_weather']['temperature']}°C, Wind Speed: {data['current_weather']['windspeed']} km/h")
     
 
